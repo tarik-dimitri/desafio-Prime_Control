@@ -2,7 +2,7 @@ describe("Testes do endpoint /deleteClient", () => {
     const baseUrl = Cypress.env("baseUrls").api;
 
     beforeEach(() => {
-        // Cadastrar um cliente para obter o ID
+        // Gancho para cadastrar um cliente para obter o ID
         cy.request("POST", `${baseUrl}/addClient`, {
             nome: "Cliente para Deletar",
             email: "delete@cliente.com",
@@ -60,12 +60,9 @@ describe("Testes do endpoint /deleteClient", () => {
         cy.request({
             method: "DELETE",
             url: `${Cypress.env("baseUrls").api}/deleteClient/{}`,
-            failOnStatusCode: false, // Permite capturar respostas com erro
+            failOnStatusCode: false,
         }).then((response) => {
-            // Valida o status HTTP 404
             expect(response.status).to.eq(404);
-    
-            // Ajuste aqui para a propriedade correta (geralmente 'message')
             expect(response.body.message).to.eq("Cliente não encontrado.");
         });
     });

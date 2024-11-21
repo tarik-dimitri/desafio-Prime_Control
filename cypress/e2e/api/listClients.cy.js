@@ -28,7 +28,7 @@ describe("Testes do endpoint /listClients", () => {
   // Scenario: Listar clientes quando não há registros
   // Given que não existem clientes cadastrados no sistema
   // When envio uma solicitação para o endpoint /listClients
-  // Then devo receber uma lista vazia
+  // Then devo receber um erro sinalizando que o endpoint está incorreto
       it("CT003 - Deve retornar erro 404 ao acessar um endpoint inexistente", () => {
       cy.request({
         url: `${baseUrl}/listClients/invalidEndpoint`,

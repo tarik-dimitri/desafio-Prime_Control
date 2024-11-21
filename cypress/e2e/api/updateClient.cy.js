@@ -65,7 +65,7 @@ describe("Testes do endpoint /updateClient", () => {
     // Scenario: Atualizar cliente sem informações obrigatórias
     // Given que o corpo da solicitação não possui todas as informações obrigatórias
     // When envio uma solicitação para atualizar as informações do cliente
-    // Then deve retornar uma mensagem de erro indicando os campos ausentes
+    // Then deve retornar uma mensagem de erro indicando que o corpo da requisição não pode ficar vazio
 
     it("CT003 - Deve retornar erro ao não enviar campos para atualização", () => {
         const validClientId = "ID_DO_CLIENTE_EXISTENTE"; 
@@ -76,8 +76,8 @@ describe("Testes do endpoint /updateClient", () => {
             body: {}, // Body vazio para simular o erro
             failOnStatusCode: false,
         }).then((response) => {
-            expect(response.status).to.eq(400); // Valida o status de erro
-            expect(response.body.message).to.eq("Informe ao menos um campo para atualizar"); // Valida a mensagem de erro
+            expect(response.status).to.eq(400);
+            expect(response.body.message).to.eq("Informe ao menos um campo para atualizar");
         });
     });
     

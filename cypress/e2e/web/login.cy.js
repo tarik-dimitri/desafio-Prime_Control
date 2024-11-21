@@ -7,7 +7,7 @@ describe("Login", () => {
     loginPage.acessarPaginaLogin();
   });
 
-   // Scenario: Realizar Login com sucesso
+  // Scenario: Realizar Login com sucesso
   // Given que estou na página de login
   // When insiro o email e senha corretos
   // Then devo ser redirecionado para a página inicial

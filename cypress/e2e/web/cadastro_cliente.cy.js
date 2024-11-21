@@ -1,4 +1,3 @@
-// Feature: Cadastro de Cliente
 describe("Cadastro de Cliente", () => {
   const cadastroClientePage = require("../../page_objects/CadastroClientePage");
 
@@ -64,7 +63,7 @@ describe("Cadastro de Cliente", () => {
   // Scenario: Validação de campos obrigatórios
   // Given que estou na aba de cadastro de cliente
   // When não preencho todos os campos obrigatórios
-  // Then o botão "Salvar" não deve ser habilitado
+  // Then o botão "Salvar" não deve ser habilitado até que todos os dados obrigatórios estejam preenchidos
 
   it("Deve validar que o botão 'Salvar' não é habilitado enquanto houver campos obrigatórios vazios", () => {
     

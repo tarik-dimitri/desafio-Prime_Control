@@ -1,6 +1,5 @@
 import ValidarInformacoesPage from "../../page_objects/ValidarInformacoesPage";
 
-// Feature: Validar Informações do Candidato
 describe("Validar Informações do Candidato", () => {
   const validarInformacoesPage = new ValidarInformacoesPage();
 
@@ -11,6 +10,13 @@ describe("Validar Informações do Candidato", () => {
     cy.contains("Cadastrar Cliente").scrollIntoView().click();
   });
 
+// Scenario: Enviar dados do projeto e redirecionar para a tela de informações
+// Given que estou na página inicial do sistema
+// And clico no botão "Logout"
+//And clico em "enviar dados"
+// When preencho os campos obrigatórios com informações válidas
+// And envio as informações preenchidas
+// Then devo ver uma mensagem indicando que os dados foram registrados com sucesso
   it("Deve enviar dados do projeto e redirecionar para a tela de informações", () => {
     validarInformacoesPage.clicarBotaoFinalizar();
     validarInformacoesPage.preencherInformacoes({

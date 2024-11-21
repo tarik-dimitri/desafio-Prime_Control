@@ -1,6 +1,5 @@
 import LogoutPage from "../../page_objects/LogoutPage";
 
-// Feature: Logout
 describe("Realizar Logout", () => {
   const logoutPage = new LogoutPage();
 
