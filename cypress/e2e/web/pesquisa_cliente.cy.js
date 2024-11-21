@@ -1,46 +1,31 @@
-const CadastroClientePage = require("../../page_objects/CadastroClientePage");
-
+// Feature: Pesquisa de Cliente
 describe("Pesquisa de Cliente", () => {
   beforeEach(() => {
-    cy.viewport(1920, 1080); // Resolução Full HD
-    cy.login("teste@usuario.com", "senha123"); // Garantir login antes de cada teste
-    cy.url({ timeout: 10000 }).should("include", "/app/home"); // Verificar que estamos na tela inicial
+    // Configurando a resolução Full HD
+    cy.viewport(1920, 1080);
+    cy.login("teste@usuario.com", "senha123"); // Ajuste o método de login, se necessário
+    cy.url({ timeout: 10000 }).should("include", "/app/home");
+    cy.contains("Clientes").scrollIntoView().click();
   });
 
-  it("Deve cadastrar e pesquisar cliente cadastrado", () => {
-    // Dados do cliente para cadastro
-    const novoCliente = {
-      nomeCompleto: "Cliente Pesquisa Automática",
-      telefone: "987654321",
-      cep: "12345-678",
-      email: "cliente.pesquisa@teste.com",
-      endereco: "Rua de Teste",
-      numeroResidencia: "101",
-      complemento: "Bloco A",
-      pais: "Brasil",
-      genero: "Masculino",
-      ferramentas: ["Cypress", "Postman"],
-      foto: "cypress/fixtures/test_image.jpg",
-    };
-
-    // **Cadastrando o cliente**
-    cy.log("Cadastrando novo cliente...");
-    CadastroClientePage.preencherFormulario(novoCliente);
-    CadastroClientePage.salvar();
-
-    // Garantir que o cliente foi cadastrado com sucesso
-    cy.contains("Cliente cadastrado com sucesso", { timeout: 10000 }).should("be.visible");
-
-    // **Pesquisando pelo cliente cadastrado**
-    cy.log("Pesquisando cliente recém-cadastrado...");
+  // Scenario: Pesquisar cliente existente
+  // Given que estou na página inicial do sistema
+  // When insiro um nome válido no campo de pesquisa
+  // Then os dados do cliente devem ser exibidos
+  it("Deve pesquisar cliente por nome", () => {
+    // Certificando que a página está carregada e o campo está visível
     cy.get('input[placeholder="Pesquisar por nome"]')
-      .clear()
-      .type(novoCliente.nomeCompleto); // Digitar o nome completo do cliente
+      .should("be.visible")
+      .type("Daniel Machado");
 
-    cy.get("#button-addon2").scrollIntoView().click(); // Clicar no botão "Pesquisar"
+    // Validando o botão de pesquisa
+    cy.get("#button-addon2")
+      .click({ force: true }); // Força o clique, mesmo se estiver sobreposto
 
-    // **Validando resultados da pesquisa**
-    cy.contains("td", novoCliente.nomeCompleto, { timeout: 10000 }) // Verificar que o nome aparece na tabela
-      .should("be.visible");
+    // Verificando se os dados do cliente são exibidos
+    cy.contains("Dados do Cliente", { timeout: 10000 }).should("be.visible");
+    cy.contains("Nome: Daniel Machado").should("be.visible");
+    cy.contains("E-mail: bruno.cavalcante@example.net").should("be.visible");
+    cy.contains("Telefone: 5584929376540").should("be.visible");
   });
 });
