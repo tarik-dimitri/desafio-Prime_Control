@@ -1,0 +1,27 @@
+{
+  "name": "desafio_prime",
+  "version": "1.0.0",
+  "description": "Desafio Prime Control Web",
+  "main": "cypress.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tarik-dimitri/desafio-Prime_Control.git"
+  },
+  "author": "Tarik Dimitri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tarik-dimitri/desafio-Prime_Control/issues"
+  },
+  "homepage": "https://github.com/tarik-dimitri/desafio-Prime_Control#readme",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^21.0.3",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.0.0",
+    "@cucumber/cucumber": "^10.0.0",
+    "cypress": "^12.17.4",
+    "cypress-file-upload": "^5.0.8",
+    "esbuild": "^0.24.0"
+  }
+}

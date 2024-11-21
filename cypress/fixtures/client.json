@@ -1,0 +1,13 @@
+{
+    "nome": "Cliente Teste",
+    "email": "teste@cliente.com",
+    "fone": "123456789",
+    "fotoPerfil": "http://example.com/foto.jpg",
+    "cep": "12345-678",
+    "endereco": "Rua Teste",
+    "complemento": "Apto 101",
+    "pais": "Brasil",
+    "genero": "Masculino",
+    "ferramentas": ["Cypress", "Selenium"]
+  }
+  
